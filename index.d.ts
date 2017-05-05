@@ -3,20 +3,16 @@ declare module 'sw-toolbox' {
   type PrecacheURL = Request | string
   type PrecacheURLs = Promise<PrecacheURL[]> | PrecacheURL[]
 
-  interface Request {
-  }
-  interface Response {
-  }
-
   export interface CacheOptions {
     name: string
-    maxEntries: number
-    maxAgeSeconds: number
+    maxEntries?: number
+    maxAgeSeconds?: number
+    queryOptions?: CacheQueryOptions
   }
   export interface Options {
-    debug: boolean
-    networkTimeoutSeconds: number
-    cache: CacheOptions
+    debug?: boolean
+    networkTimeoutSeconds?: number
+    cache?: CacheOptions
   }
   export interface Handler {
     (request: Request): Promise<Response>
